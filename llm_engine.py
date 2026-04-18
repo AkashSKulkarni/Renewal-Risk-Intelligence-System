@@ -123,13 +123,18 @@ Changelog:
 def generate_explanation(features):
 
     prompt = f"""
-Explain:
+Return ONLY valid JSON.
 
-1 why this account is at risk
+{{
+  "risk_summary": "string",
+  "key_reasons": ["string"],
+  "recommended_actions": ["string"]
+}}
 
-2 signals contributing
-
-3 recommended actions
+Rules:
+- Be specific and actionable
+- Actions must be practical for Customer Success teams
+- No markdown, no explanation outside JSON
 
 Data:
 {features}
